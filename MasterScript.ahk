@@ -2773,7 +2773,7 @@ FirstRebirth2() ;Does a rebirth from number = 1. Called first in challenge scrip
 	
 	BloodAssignInitial :=0
 		
-	While ((!SearchBMX) || (RebirthTimerTime < 180000)) ;Until Blood Magic is unlocked and 3 minutes have passed, loop: Adds energy to Energy Buster, Wandoos, Time Machine; Adds magic to time machine and Wandoows, Nuke Bosses, Fight Boss, check for iron pill
+	While ((!SearchBMX) || (RebirthTimerTime < Max(180000, Challenge1RunLength * 60000))) ;Until Blood Magic is unlocked and Max(3 minutes, challenge1 length) have passed, loop: Adds energy to Energy Buster, Wandoos, Time Machine; Adds magic to time machine and Wandoows, Nuke Bosses, Fight Boss, check for iron pill
 	{
 		if (A_Index > 0) && (RebirthTimerTime > 900000) && (!NRCFlag) ; If you've been through this loop once and rebirth time has exceeded 15 min, rebirth now.
 		{
