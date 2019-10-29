@@ -2853,13 +2853,21 @@ FirstRebirth2() ;Does a rebirth from number = 1. Called first in challenge scrip
 			ImageSearch, SearchBMX, SearchY, Search1X, Search1Y, Search2X, Search2Y, *%ImageSearchVariance% %SearchFileName%
 		}
 		IronPillCheckShort()
+
 	}
+	; fight one more time without stop
+	FightMenu()
+	NukeBoss()
+	FightBoss()
+	
 	InventoryMenu()
 	Loadout(2)
 	RegainMagic()
 	BloodMagicMenu()
 	BloodAssign_CostEfficient(MaxSustainableBloodSpellNumber) ;setting
 	Sleep, 10000 ;wait 10 seconds to accumulate blood number
+	MoneyPitMenu()
+	MoneyPit()
 	RebirthMenu()
 	LastRebirthTimerTime := A_TickCount - RebirthTimerStart
 }
@@ -3009,7 +3017,8 @@ RebirthScript_Short(X) ;From the rebirth screen, performs a rebirth and does a r
 	}
 	StopFight()
 	SaveCheck()
-	MoneyPitCheckShort()
+	MoneyPitMenu()
+	MoneyPit()
 	IronPillCheckShort()
 	FreeSpinCheck()
 	InventoryMenu()
@@ -3101,7 +3110,8 @@ RebirthScript_AdvTraining(X) ;From the rebirth screen, performs a rebirth and do
 			NGU_CapBoth()
 	}
 	SaveCheck()
-	MoneyPitCheckShort()
+	MoneyPitMenu()
+	MoneyPit()
 	IronPillCheckShort()
 	FreeSpinCheck()
 	YGGMenu()
